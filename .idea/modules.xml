@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/mysql-proxy/mysql-proxy.iml" filepath="$PROJECT_DIR$/mysql-proxy/mysql-proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sharding-parser/sharding-parser.iml" filepath="$PROJECT_DIR$/sharding-parser/sharding-parser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shardingsphere-workshop.iml" filepath="$PROJECT_DIR$/shardingsphere-workshop.iml" />
+    </modules>
+  </component>
+</project>

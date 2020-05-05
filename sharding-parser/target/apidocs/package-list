@@ -1,0 +1,8 @@
+autogen
+shardingsphere.workshop.parser.engine
+shardingsphere.workshop.parser.engine.parser
+shardingsphere.workshop.parser.engine.visitor
+shardingsphere.workshop.parser.exception
+shardingsphere.workshop.parser.statement
+shardingsphere.workshop.parser.statement.segment
+shardingsphere.workshop.parser.statement.statement

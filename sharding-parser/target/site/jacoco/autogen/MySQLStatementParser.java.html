@@ -1,0 +1,1277 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="zh"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MySQLStatementParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">sharding-parser</a> &gt; <a href="index.source.html" class="el_package">autogen</a> &gt; <span class="el_source">MySQLStatementParser.java</span></div><h1>MySQLStatementParser.java</h1><pre class="source lang-java linenums">// Generated from autogen\MySQLStatement.g4 by ANTLR 4.7.2
+package autogen;
+import org.antlr.v4.runtime.atn.*;
+import org.antlr.v4.runtime.dfa.DFA;
+import org.antlr.v4.runtime.*;
+import org.antlr.v4.runtime.misc.*;
+import org.antlr.v4.runtime.tree.*;
+import java.util.List;
+import java.util.Iterator;
+import java.util.ArrayList;
+
+@SuppressWarnings({&quot;all&quot;, &quot;warnings&quot;, &quot;unchecked&quot;, &quot;unused&quot;, &quot;cast&quot;})
+public class MySQLStatementParser extends Parser {
+<span class="fc" id="L14">	static { RuntimeMetaData.checkVersion(&quot;4.7.2&quot;, RuntimeMetaData.VERSION); }</span>
+
+	protected static final DFA[] _decisionToDFA;
+<span class="fc" id="L17">	protected static final PredictionContextCache _sharedContextCache =</span>
+		new PredictionContextCache();
+	public static final int
+		AND_=1, OR_=2, NOT_=3, TILDE_=4, VERTICAL_BAR_=5, AMPERSAND_=6, SIGNED_LEFT_SHIFT_=7, 
+		SIGNED_RIGHT_SHIFT_=8, CARET_=9, MOD_=10, COLON_=11, PLUS_=12, MINUS_=13, 
+		ASTERISK_=14, SLASH_=15, BACKSLASH_=16, DOT_=17, DOT_ASTERISK_=18, SAFE_EQ_=19, 
+		DEQ_=20, EQ_=21, NEQ_=22, GT_=23, GTE_=24, LT_=25, LTE_=26, POUND_=27, 
+		LP_=28, RP_=29, LBE_=30, RBE_=31, LBT_=32, RBT_=33, COMMA_=34, DQ_=35, 
+		SQ_=36, BQ_=37, QUESTION_=38, AT_=39, SEMI_=40, WS=41, USE=42, INSERT=43, 
+		SELECT=44, TABLE=45, COLUMN=46, INTO=47, VALUES=48, VALUE=49, FROM=50, 
+		WHERE=51, AND=52, OR=53, NOT=54, BETWEEN=55, IN=56, IDENTIFIER_=57, STRING_=58, 
+		NUMBER_=59, HEX_DIGIT_=60, BIT_NUM_=61, INT_=62, HEX_=63;
+	public static final int
+		RULE_execute = 0, RULE_use = 1, RULE_schemaName = 2, RULE_select = 3, 
+		RULE_insert = 4, RULE_assignmentValues = 5, RULE_assignmentValue = 6, 
+		RULE_columnNames = 7, RULE_columnName = 8, RULE_tableName = 9, RULE_identifier = 10, 
+		RULE_selectElements = 11, RULE_selectElement = 12, RULE_whereClause = 13, 
+		RULE_logicExpression = 14, RULE_logicalOperator = 15, RULE_comparisonOperator = 16;
+	private static String[] makeRuleNames() {
+<span class="fc" id="L36">		return new String[] {</span>
+			&quot;execute&quot;, &quot;use&quot;, &quot;schemaName&quot;, &quot;select&quot;, &quot;insert&quot;, &quot;assignmentValues&quot;, 
+			&quot;assignmentValue&quot;, &quot;columnNames&quot;, &quot;columnName&quot;, &quot;tableName&quot;, &quot;identifier&quot;, 
+			&quot;selectElements&quot;, &quot;selectElement&quot;, &quot;whereClause&quot;, &quot;logicExpression&quot;, 
+			&quot;logicalOperator&quot;, &quot;comparisonOperator&quot;
+		};
+	}
+<span class="fc" id="L43">	public static final String[] ruleNames = makeRuleNames();</span>
+
+	private static String[] makeLiteralNames() {
+<span class="fc" id="L46">		return new String[] {</span>
+			null, &quot;'&amp;&amp;'&quot;, &quot;'||'&quot;, &quot;'!'&quot;, &quot;'~'&quot;, &quot;'|'&quot;, &quot;'&amp;'&quot;, &quot;'&lt;&lt;'&quot;, &quot;'&gt;&gt;'&quot;, &quot;'^'&quot;, 
+			&quot;'%'&quot;, &quot;':'&quot;, &quot;'+'&quot;, &quot;'-'&quot;, &quot;'*'&quot;, &quot;'/'&quot;, &quot;'\\'&quot;, &quot;'.'&quot;, &quot;'.*'&quot;, &quot;'&lt;=&gt;'&quot;, 
+			&quot;'=='&quot;, &quot;'='&quot;, null, &quot;'&gt;'&quot;, &quot;'&gt;='&quot;, &quot;'&lt;'&quot;, &quot;'&lt;='&quot;, &quot;'#'&quot;, &quot;'('&quot;, &quot;')'&quot;, 
+			&quot;'{'&quot;, &quot;'}'&quot;, &quot;'['&quot;, &quot;']'&quot;, &quot;','&quot;, &quot;'\&quot;'&quot;, &quot;'''&quot;, &quot;'`'&quot;, &quot;'?'&quot;, &quot;'@'&quot;, 
+			&quot;';'&quot;
+		};
+	}
+<span class="fc" id="L54">	private static final String[] _LITERAL_NAMES = makeLiteralNames();</span>
+	private static String[] makeSymbolicNames() {
+<span class="fc" id="L56">		return new String[] {</span>
+			null, &quot;AND_&quot;, &quot;OR_&quot;, &quot;NOT_&quot;, &quot;TILDE_&quot;, &quot;VERTICAL_BAR_&quot;, &quot;AMPERSAND_&quot;, 
+			&quot;SIGNED_LEFT_SHIFT_&quot;, &quot;SIGNED_RIGHT_SHIFT_&quot;, &quot;CARET_&quot;, &quot;MOD_&quot;, &quot;COLON_&quot;, 
+			&quot;PLUS_&quot;, &quot;MINUS_&quot;, &quot;ASTERISK_&quot;, &quot;SLASH_&quot;, &quot;BACKSLASH_&quot;, &quot;DOT_&quot;, &quot;DOT_ASTERISK_&quot;, 
+			&quot;SAFE_EQ_&quot;, &quot;DEQ_&quot;, &quot;EQ_&quot;, &quot;NEQ_&quot;, &quot;GT_&quot;, &quot;GTE_&quot;, &quot;LT_&quot;, &quot;LTE_&quot;, &quot;POUND_&quot;, 
+			&quot;LP_&quot;, &quot;RP_&quot;, &quot;LBE_&quot;, &quot;RBE_&quot;, &quot;LBT_&quot;, &quot;RBT_&quot;, &quot;COMMA_&quot;, &quot;DQ_&quot;, &quot;SQ_&quot;, 
+			&quot;BQ_&quot;, &quot;QUESTION_&quot;, &quot;AT_&quot;, &quot;SEMI_&quot;, &quot;WS&quot;, &quot;USE&quot;, &quot;INSERT&quot;, &quot;SELECT&quot;, 
+			&quot;TABLE&quot;, &quot;COLUMN&quot;, &quot;INTO&quot;, &quot;VALUES&quot;, &quot;VALUE&quot;, &quot;FROM&quot;, &quot;WHERE&quot;, &quot;AND&quot;, 
+			&quot;OR&quot;, &quot;NOT&quot;, &quot;BETWEEN&quot;, &quot;IN&quot;, &quot;IDENTIFIER_&quot;, &quot;STRING_&quot;, &quot;NUMBER_&quot;, &quot;HEX_DIGIT_&quot;, 
+			&quot;BIT_NUM_&quot;, &quot;INT_&quot;, &quot;HEX_&quot;
+		};
+	}
+<span class="fc" id="L68">	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();</span>
+<span class="fc" id="L69">	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);</span>
+
+	/**
+	 * @deprecated Use {@link #VOCABULARY} instead.
+	 */
+	@Deprecated
+	public static final String[] tokenNames;
+	static {
+<span class="fc" id="L77">		tokenNames = new String[_SYMBOLIC_NAMES.length];</span>
+<span class="fc bfc" id="L78" title="All 2 branches covered.">		for (int i = 0; i &lt; tokenNames.length; i++) {</span>
+<span class="fc" id="L79">			tokenNames[i] = VOCABULARY.getLiteralName(i);</span>
+<span class="fc bfc" id="L80" title="All 2 branches covered.">			if (tokenNames[i] == null) {</span>
+<span class="fc" id="L81">				tokenNames[i] = VOCABULARY.getSymbolicName(i);</span>
+			}
+
+<span class="fc bfc" id="L84" title="All 2 branches covered.">			if (tokenNames[i] == null) {</span>
+<span class="fc" id="L85">				tokenNames[i] = &quot;&lt;INVALID&gt;&quot;;</span>
+			}
+		}
+	}
+
+	@Override
+	@Deprecated
+	public String[] getTokenNames() {
+<span class="nc" id="L93">		return tokenNames;</span>
+	}
+
+	@Override
+
+	public Vocabulary getVocabulary() {
+<span class="nc" id="L99">		return VOCABULARY;</span>
+	}
+
+	@Override
+<span class="nc" id="L103">	public String getGrammarFileName() { return &quot;MySQLStatement.g4&quot;; }</span>
+
+	@Override
+<span class="nc" id="L106">	public String[] getRuleNames() { return ruleNames; }</span>
+
+	@Override
+<span class="nc" id="L109">	public String getSerializedATN() { return _serializedATN; }</span>
+
+	@Override
+<span class="nc" id="L112">	public ATN getATN() { return _ATN; }</span>
+
+	public MySQLStatementParser(TokenStream input) {
+<span class="fc" id="L115">		super(input);</span>
+<span class="fc" id="L116">		_interp = new ParserATNSimulator(this,_ATN,_decisionToDFA,_sharedContextCache);</span>
+<span class="fc" id="L117">	}</span>
+
+	public static class ExecuteContext extends ParserRuleContext {
+		public UseContext use() {
+<span class="nc" id="L121">			return getRuleContext(UseContext.class,0);</span>
+		}
+		public InsertContext insert() {
+<span class="nc" id="L124">			return getRuleContext(InsertContext.class,0);</span>
+		}
+		public SelectContext select() {
+<span class="nc" id="L127">			return getRuleContext(SelectContext.class,0);</span>
+		}
+<span class="nc" id="L129">		public TerminalNode SEMI_() { return getToken(MySQLStatementParser.SEMI_, 0); }</span>
+		public ExecuteContext(ParserRuleContext parent, int invokingState) {
+<span class="fc" id="L131">			super(parent, invokingState);</span>
+<span class="fc" id="L132">		}</span>
+<span class="nc" id="L133">		@Override public int getRuleIndex() { return RULE_execute; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="nc bnc" id="L136" title="All 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitExecute(this);</span>
+<span class="nc" id="L137">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final ExecuteContext execute() throws RecognitionException {
+<span class="fc" id="L142">		ExecuteContext _localctx = new ExecuteContext(_ctx, getState());</span>
+<span class="fc" id="L143">		enterRule(_localctx, 0, RULE_execute);</span>
+		int _la;
+		try {
+<span class="fc" id="L146">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="fc" id="L148">			setState(37);</span>
+<span class="fc" id="L149">			_errHandler.sync(this);</span>
+<span class="pc bpc" id="L150" title="1 of 4 branches missed.">			switch (_input.LA(1)) {</span>
+			case USE:
+				{
+<span class="fc" id="L153">				setState(34);</span>
+<span class="fc" id="L154">				use();</span>
+				}
+<span class="fc" id="L156">				break;</span>
+			case INSERT:
+				{
+<span class="fc" id="L159">				setState(35);</span>
+<span class="fc" id="L160">				insert();</span>
+				}
+<span class="fc" id="L162">				break;</span>
+			case SELECT:
+				{
+<span class="fc" id="L165">				setState(36);</span>
+<span class="fc" id="L166">				select();</span>
+				}
+<span class="fc" id="L168">				break;</span>
+			default:
+<span class="nc" id="L170">				throw new NoViableAltException(this);</span>
+			}
+<span class="fc" id="L172">			setState(40);</span>
+<span class="fc" id="L173">			_errHandler.sync(this);</span>
+<span class="fc" id="L174">			_la = _input.LA(1);</span>
+<span class="fc bfc" id="L175" title="All 2 branches covered.">			if (_la==SEMI_) {</span>
+				{
+<span class="fc" id="L177">				setState(39);</span>
+<span class="fc" id="L178">				match(SEMI_);</span>
+				}
+			}
+
+			}
+		}
+<span class="nc" id="L184">		catch (RecognitionException re) {</span>
+<span class="nc" id="L185">			_localctx.exception = re;</span>
+<span class="nc" id="L186">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L187">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="fc" id="L190">			exitRule();</span>
+		}
+<span class="fc" id="L192">		return _localctx;</span>
+	}
+
+	public static class UseContext extends ParserRuleContext {
+<span class="nc" id="L196">		public TerminalNode USE() { return getToken(MySQLStatementParser.USE, 0); }</span>
+		public SchemaNameContext schemaName() {
+<span class="fc" id="L198">			return getRuleContext(SchemaNameContext.class,0);</span>
+		}
+		public UseContext(ParserRuleContext parent, int invokingState) {
+<span class="fc" id="L201">			super(parent, invokingState);</span>
+<span class="fc" id="L202">		}</span>
+<span class="nc" id="L203">		@Override public int getRuleIndex() { return RULE_use; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="pc bpc" id="L206" title="1 of 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitUse(this);</span>
+<span class="nc" id="L207">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final UseContext use() throws RecognitionException {
+<span class="fc" id="L212">		UseContext _localctx = new UseContext(_ctx, getState());</span>
+<span class="fc" id="L213">		enterRule(_localctx, 2, RULE_use);</span>
+		try {
+<span class="fc" id="L215">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="fc" id="L217">			setState(42);</span>
+<span class="fc" id="L218">			match(USE);</span>
+<span class="fc" id="L219">			setState(43);</span>
+<span class="fc" id="L220">			schemaName();</span>
+			}
+		}
+<span class="nc" id="L223">		catch (RecognitionException re) {</span>
+<span class="nc" id="L224">			_localctx.exception = re;</span>
+<span class="nc" id="L225">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L226">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="fc" id="L229">			exitRule();</span>
+		}
+<span class="fc" id="L231">		return _localctx;</span>
+	}
+
+	public static class SchemaNameContext extends ParserRuleContext {
+		public IdentifierContext identifier() {
+<span class="fc" id="L236">			return getRuleContext(IdentifierContext.class,0);</span>
+		}
+		public SchemaNameContext(ParserRuleContext parent, int invokingState) {
+<span class="fc" id="L239">			super(parent, invokingState);</span>
+<span class="fc" id="L240">		}</span>
+<span class="nc" id="L241">		@Override public int getRuleIndex() { return RULE_schemaName; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="pc bpc" id="L244" title="1 of 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitSchemaName(this);</span>
+<span class="nc" id="L245">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final SchemaNameContext schemaName() throws RecognitionException {
+<span class="fc" id="L250">		SchemaNameContext _localctx = new SchemaNameContext(_ctx, getState());</span>
+<span class="fc" id="L251">		enterRule(_localctx, 4, RULE_schemaName);</span>
+		try {
+<span class="fc" id="L253">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="fc" id="L255">			setState(45);</span>
+<span class="fc" id="L256">			identifier();</span>
+			}
+		}
+<span class="nc" id="L259">		catch (RecognitionException re) {</span>
+<span class="nc" id="L260">			_localctx.exception = re;</span>
+<span class="nc" id="L261">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L262">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="fc" id="L265">			exitRule();</span>
+		}
+<span class="fc" id="L267">		return _localctx;</span>
+	}
+
+	public static class SelectContext extends ParserRuleContext {
+<span class="nc" id="L271">		public TerminalNode SELECT() { return getToken(MySQLStatementParser.SELECT, 0); }</span>
+		public SelectElementsContext selectElements() {
+<span class="fc" id="L273">			return getRuleContext(SelectElementsContext.class,0);</span>
+		}
+<span class="nc" id="L275">		public TerminalNode FROM() { return getToken(MySQLStatementParser.FROM, 0); }</span>
+		public TableNameContext tableName() {
+<span class="fc" id="L277">			return getRuleContext(TableNameContext.class,0);</span>
+		}
+		public WhereClauseContext whereClause() {
+<span class="nc" id="L280">			return getRuleContext(WhereClauseContext.class,0);</span>
+		}
+		public SelectContext(ParserRuleContext parent, int invokingState) {
+<span class="fc" id="L283">			super(parent, invokingState);</span>
+<span class="fc" id="L284">		}</span>
+<span class="nc" id="L285">		@Override public int getRuleIndex() { return RULE_select; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="pc bpc" id="L288" title="1 of 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitSelect(this);</span>
+<span class="nc" id="L289">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final SelectContext select() throws RecognitionException {
+<span class="fc" id="L294">		SelectContext _localctx = new SelectContext(_ctx, getState());</span>
+<span class="fc" id="L295">		enterRule(_localctx, 6, RULE_select);</span>
+		int _la;
+		try {
+<span class="fc" id="L298">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="fc" id="L300">			setState(47);</span>
+<span class="fc" id="L301">			match(SELECT);</span>
+<span class="fc" id="L302">			setState(48);</span>
+<span class="fc" id="L303">			selectElements();</span>
+<span class="fc" id="L304">			setState(49);</span>
+<span class="fc" id="L305">			match(FROM);</span>
+<span class="fc" id="L306">			setState(50);</span>
+<span class="fc" id="L307">			tableName();</span>
+<span class="fc" id="L308">			setState(52);</span>
+<span class="fc" id="L309">			_errHandler.sync(this);</span>
+<span class="fc" id="L310">			_la = _input.LA(1);</span>
+<span class="pc bpc" id="L311" title="1 of 2 branches missed.">			if (_la==WHERE) {</span>
+				{
+<span class="nc" id="L313">				setState(51);</span>
+<span class="nc" id="L314">				whereClause();</span>
+				}
+			}
+
+			}
+		}
+<span class="nc" id="L320">		catch (RecognitionException re) {</span>
+<span class="nc" id="L321">			_localctx.exception = re;</span>
+<span class="nc" id="L322">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L323">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="fc" id="L326">			exitRule();</span>
+		}
+<span class="fc" id="L328">		return _localctx;</span>
+	}
+
+	public static class InsertContext extends ParserRuleContext {
+<span class="nc" id="L332">		public TerminalNode INSERT() { return getToken(MySQLStatementParser.INSERT, 0); }</span>
+		public TableNameContext tableName() {
+<span class="fc" id="L334">			return getRuleContext(TableNameContext.class,0);</span>
+		}
+<span class="nc" id="L336">		public TerminalNode VALUES() { return getToken(MySQLStatementParser.VALUES, 0); }</span>
+		public AssignmentValuesContext assignmentValues() {
+<span class="fc" id="L338">			return getRuleContext(AssignmentValuesContext.class,0);</span>
+		}
+<span class="nc" id="L340">		public TerminalNode INTO() { return getToken(MySQLStatementParser.INTO, 0); }</span>
+		public ColumnNamesContext columnNames() {
+<span class="fc" id="L342">			return getRuleContext(ColumnNamesContext.class,0);</span>
+		}
+		public InsertContext(ParserRuleContext parent, int invokingState) {
+<span class="fc" id="L345">			super(parent, invokingState);</span>
+<span class="fc" id="L346">		}</span>
+<span class="nc" id="L347">		@Override public int getRuleIndex() { return RULE_insert; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="pc bpc" id="L350" title="1 of 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitInsert(this);</span>
+<span class="nc" id="L351">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final InsertContext insert() throws RecognitionException {
+<span class="fc" id="L356">		InsertContext _localctx = new InsertContext(_ctx, getState());</span>
+<span class="fc" id="L357">		enterRule(_localctx, 8, RULE_insert);</span>
+		int _la;
+		try {
+<span class="fc" id="L360">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="fc" id="L362">			setState(54);</span>
+<span class="fc" id="L363">			match(INSERT);</span>
+<span class="fc" id="L364">			setState(56);</span>
+<span class="fc" id="L365">			_errHandler.sync(this);</span>
+<span class="fc" id="L366">			_la = _input.LA(1);</span>
+<span class="pc bpc" id="L367" title="1 of 2 branches missed.">			if (_la==INTO) {</span>
+				{
+<span class="fc" id="L369">				setState(55);</span>
+<span class="fc" id="L370">				match(INTO);</span>
+				}
+			}
+
+<span class="fc" id="L374">			setState(58);</span>
+<span class="fc" id="L375">			tableName();</span>
+<span class="fc" id="L376">			setState(60);</span>
+<span class="fc" id="L377">			_errHandler.sync(this);</span>
+<span class="fc" id="L378">			_la = _input.LA(1);</span>
+<span class="pc bpc" id="L379" title="1 of 2 branches missed.">			if (_la==LP_) {</span>
+				{
+<span class="fc" id="L381">				setState(59);</span>
+<span class="fc" id="L382">				columnNames();</span>
+				}
+			}
+
+<span class="fc" id="L386">			setState(62);</span>
+<span class="fc" id="L387">			match(VALUES);</span>
+<span class="fc" id="L388">			setState(63);</span>
+<span class="fc" id="L389">			assignmentValues();</span>
+			}
+		}
+<span class="nc" id="L392">		catch (RecognitionException re) {</span>
+<span class="nc" id="L393">			_localctx.exception = re;</span>
+<span class="nc" id="L394">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L395">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="fc" id="L398">			exitRule();</span>
+		}
+<span class="fc" id="L400">		return _localctx;</span>
+	}
+
+	public static class AssignmentValuesContext extends ParserRuleContext {
+<span class="nc" id="L404">		public TerminalNode LP_() { return getToken(MySQLStatementParser.LP_, 0); }</span>
+		public List&lt;AssignmentValueContext&gt; assignmentValue() {
+<span class="fc" id="L406">			return getRuleContexts(AssignmentValueContext.class);</span>
+		}
+		public AssignmentValueContext assignmentValue(int i) {
+<span class="nc" id="L409">			return getRuleContext(AssignmentValueContext.class,i);</span>
+		}
+<span class="nc" id="L411">		public TerminalNode RP_() { return getToken(MySQLStatementParser.RP_, 0); }</span>
+<span class="nc" id="L412">		public List&lt;TerminalNode&gt; COMMA_() { return getTokens(MySQLStatementParser.COMMA_); }</span>
+		public TerminalNode COMMA_(int i) {
+<span class="nc" id="L414">			return getToken(MySQLStatementParser.COMMA_, i);</span>
+		}
+		public AssignmentValuesContext(ParserRuleContext parent, int invokingState) {
+<span class="fc" id="L417">			super(parent, invokingState);</span>
+<span class="fc" id="L418">		}</span>
+<span class="nc" id="L419">		@Override public int getRuleIndex() { return RULE_assignmentValues; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="nc bnc" id="L422" title="All 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitAssignmentValues(this);</span>
+<span class="nc" id="L423">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final AssignmentValuesContext assignmentValues() throws RecognitionException {
+<span class="fc" id="L428">		AssignmentValuesContext _localctx = new AssignmentValuesContext(_ctx, getState());</span>
+<span class="fc" id="L429">		enterRule(_localctx, 10, RULE_assignmentValues);</span>
+		int _la;
+		try {
+<span class="fc" id="L432">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="fc" id="L434">			setState(65);</span>
+<span class="fc" id="L435">			match(LP_);</span>
+<span class="fc" id="L436">			setState(66);</span>
+<span class="fc" id="L437">			assignmentValue();</span>
+<span class="fc" id="L438">			setState(71);</span>
+<span class="fc" id="L439">			_errHandler.sync(this);</span>
+<span class="fc" id="L440">			_la = _input.LA(1);</span>
+<span class="fc bfc" id="L441" title="All 2 branches covered.">			while (_la==COMMA_) {</span>
+				{
+				{
+<span class="fc" id="L444">				setState(67);</span>
+<span class="fc" id="L445">				match(COMMA_);</span>
+<span class="fc" id="L446">				setState(68);</span>
+<span class="fc" id="L447">				assignmentValue();</span>
+				}
+				}
+<span class="fc" id="L450">				setState(73);</span>
+<span class="fc" id="L451">				_errHandler.sync(this);</span>
+<span class="fc" id="L452">				_la = _input.LA(1);</span>
+			}
+<span class="fc" id="L454">			setState(74);</span>
+<span class="fc" id="L455">			match(RP_);</span>
+			}
+		}
+<span class="nc" id="L458">		catch (RecognitionException re) {</span>
+<span class="nc" id="L459">			_localctx.exception = re;</span>
+<span class="nc" id="L460">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L461">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="fc" id="L464">			exitRule();</span>
+		}
+<span class="fc" id="L466">		return _localctx;</span>
+	}
+
+	public static class AssignmentValueContext extends ParserRuleContext {
+		public IdentifierContext identifier() {
+<span class="fc" id="L471">			return getRuleContext(IdentifierContext.class,0);</span>
+		}
+		public AssignmentValueContext(ParserRuleContext parent, int invokingState) {
+<span class="fc" id="L474">			super(parent, invokingState);</span>
+<span class="fc" id="L475">		}</span>
+<span class="nc" id="L476">		@Override public int getRuleIndex() { return RULE_assignmentValue; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="pc bpc" id="L479" title="1 of 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitAssignmentValue(this);</span>
+<span class="nc" id="L480">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final AssignmentValueContext assignmentValue() throws RecognitionException {
+<span class="fc" id="L485">		AssignmentValueContext _localctx = new AssignmentValueContext(_ctx, getState());</span>
+<span class="fc" id="L486">		enterRule(_localctx, 12, RULE_assignmentValue);</span>
+		try {
+<span class="fc" id="L488">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="fc" id="L490">			setState(76);</span>
+<span class="fc" id="L491">			identifier();</span>
+			}
+		}
+<span class="nc" id="L494">		catch (RecognitionException re) {</span>
+<span class="nc" id="L495">			_localctx.exception = re;</span>
+<span class="nc" id="L496">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L497">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="fc" id="L500">			exitRule();</span>
+		}
+<span class="fc" id="L502">		return _localctx;</span>
+	}
+
+	public static class ColumnNamesContext extends ParserRuleContext {
+<span class="nc" id="L506">		public TerminalNode LP_() { return getToken(MySQLStatementParser.LP_, 0); }</span>
+		public List&lt;ColumnNameContext&gt; columnName() {
+<span class="fc" id="L508">			return getRuleContexts(ColumnNameContext.class);</span>
+		}
+		public ColumnNameContext columnName(int i) {
+<span class="nc" id="L511">			return getRuleContext(ColumnNameContext.class,i);</span>
+		}
+<span class="nc" id="L513">		public TerminalNode RP_() { return getToken(MySQLStatementParser.RP_, 0); }</span>
+<span class="nc" id="L514">		public List&lt;TerminalNode&gt; COMMA_() { return getTokens(MySQLStatementParser.COMMA_); }</span>
+		public TerminalNode COMMA_(int i) {
+<span class="nc" id="L516">			return getToken(MySQLStatementParser.COMMA_, i);</span>
+		}
+		public ColumnNamesContext(ParserRuleContext parent, int invokingState) {
+<span class="fc" id="L519">			super(parent, invokingState);</span>
+<span class="fc" id="L520">		}</span>
+<span class="nc" id="L521">		@Override public int getRuleIndex() { return RULE_columnNames; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="nc bnc" id="L524" title="All 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitColumnNames(this);</span>
+<span class="nc" id="L525">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final ColumnNamesContext columnNames() throws RecognitionException {
+<span class="fc" id="L530">		ColumnNamesContext _localctx = new ColumnNamesContext(_ctx, getState());</span>
+<span class="fc" id="L531">		enterRule(_localctx, 14, RULE_columnNames);</span>
+		int _la;
+		try {
+<span class="fc" id="L534">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="fc" id="L536">			setState(78);</span>
+<span class="fc" id="L537">			match(LP_);</span>
+<span class="fc" id="L538">			setState(79);</span>
+<span class="fc" id="L539">			columnName();</span>
+<span class="fc" id="L540">			setState(84);</span>
+<span class="fc" id="L541">			_errHandler.sync(this);</span>
+<span class="fc" id="L542">			_la = _input.LA(1);</span>
+<span class="fc bfc" id="L543" title="All 2 branches covered.">			while (_la==COMMA_) {</span>
+				{
+				{
+<span class="fc" id="L546">				setState(80);</span>
+<span class="fc" id="L547">				match(COMMA_);</span>
+<span class="fc" id="L548">				setState(81);</span>
+<span class="fc" id="L549">				columnName();</span>
+				}
+				}
+<span class="fc" id="L552">				setState(86);</span>
+<span class="fc" id="L553">				_errHandler.sync(this);</span>
+<span class="fc" id="L554">				_la = _input.LA(1);</span>
+			}
+<span class="fc" id="L556">			setState(87);</span>
+<span class="fc" id="L557">			match(RP_);</span>
+			}
+		}
+<span class="nc" id="L560">		catch (RecognitionException re) {</span>
+<span class="nc" id="L561">			_localctx.exception = re;</span>
+<span class="nc" id="L562">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L563">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="fc" id="L566">			exitRule();</span>
+		}
+<span class="fc" id="L568">		return _localctx;</span>
+	}
+
+	public static class ColumnNameContext extends ParserRuleContext {
+		public IdentifierContext identifier() {
+<span class="fc" id="L573">			return getRuleContext(IdentifierContext.class,0);</span>
+		}
+		public ColumnNameContext(ParserRuleContext parent, int invokingState) {
+<span class="fc" id="L576">			super(parent, invokingState);</span>
+<span class="fc" id="L577">		}</span>
+<span class="nc" id="L578">		@Override public int getRuleIndex() { return RULE_columnName; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="pc bpc" id="L581" title="1 of 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitColumnName(this);</span>
+<span class="nc" id="L582">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final ColumnNameContext columnName() throws RecognitionException {
+<span class="fc" id="L587">		ColumnNameContext _localctx = new ColumnNameContext(_ctx, getState());</span>
+<span class="fc" id="L588">		enterRule(_localctx, 16, RULE_columnName);</span>
+		try {
+<span class="fc" id="L590">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="fc" id="L592">			setState(89);</span>
+<span class="fc" id="L593">			identifier();</span>
+			}
+		}
+<span class="nc" id="L596">		catch (RecognitionException re) {</span>
+<span class="nc" id="L597">			_localctx.exception = re;</span>
+<span class="nc" id="L598">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L599">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="fc" id="L602">			exitRule();</span>
+		}
+<span class="fc" id="L604">		return _localctx;</span>
+	}
+
+	public static class TableNameContext extends ParserRuleContext {
+		public IdentifierContext identifier() {
+<span class="fc" id="L609">			return getRuleContext(IdentifierContext.class,0);</span>
+		}
+		public TableNameContext(ParserRuleContext parent, int invokingState) {
+<span class="fc" id="L612">			super(parent, invokingState);</span>
+<span class="fc" id="L613">		}</span>
+<span class="nc" id="L614">		@Override public int getRuleIndex() { return RULE_tableName; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="pc bpc" id="L617" title="1 of 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitTableName(this);</span>
+<span class="nc" id="L618">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final TableNameContext tableName() throws RecognitionException {
+<span class="fc" id="L623">		TableNameContext _localctx = new TableNameContext(_ctx, getState());</span>
+<span class="fc" id="L624">		enterRule(_localctx, 18, RULE_tableName);</span>
+		try {
+<span class="fc" id="L626">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="fc" id="L628">			setState(91);</span>
+<span class="fc" id="L629">			identifier();</span>
+			}
+		}
+<span class="nc" id="L632">		catch (RecognitionException re) {</span>
+<span class="nc" id="L633">			_localctx.exception = re;</span>
+<span class="nc" id="L634">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L635">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="fc" id="L638">			exitRule();</span>
+		}
+<span class="fc" id="L640">		return _localctx;</span>
+	}
+
+	public static class IdentifierContext extends ParserRuleContext {
+<span class="nc" id="L644">		public TerminalNode IDENTIFIER_() { return getToken(MySQLStatementParser.IDENTIFIER_, 0); }</span>
+<span class="nc" id="L645">		public TerminalNode STRING_() { return getToken(MySQLStatementParser.STRING_, 0); }</span>
+<span class="nc" id="L646">		public TerminalNode NUMBER_() { return getToken(MySQLStatementParser.NUMBER_, 0); }</span>
+		public IdentifierContext(ParserRuleContext parent, int invokingState) {
+<span class="fc" id="L648">			super(parent, invokingState);</span>
+<span class="fc" id="L649">		}</span>
+<span class="nc" id="L650">		@Override public int getRuleIndex() { return RULE_identifier; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="pc bpc" id="L653" title="1 of 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitIdentifier(this);</span>
+<span class="nc" id="L654">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final IdentifierContext identifier() throws RecognitionException {
+<span class="fc" id="L659">		IdentifierContext _localctx = new IdentifierContext(_ctx, getState());</span>
+<span class="fc" id="L660">		enterRule(_localctx, 20, RULE_identifier);</span>
+		int _la;
+		try {
+<span class="fc" id="L663">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="fc" id="L665">			setState(93);</span>
+<span class="fc" id="L666">			_la = _input.LA(1);</span>
+<span class="pc bpc" id="L667" title="2 of 4 branches missed.">			if ( !((((_la) &amp; ~0x3f) == 0 &amp;&amp; ((1L &lt;&lt; _la) &amp; ((1L &lt;&lt; IDENTIFIER_) | (1L &lt;&lt; STRING_) | (1L &lt;&lt; NUMBER_))) != 0)) ) {</span>
+<span class="nc" id="L668">			_errHandler.recoverInline(this);</span>
+			}
+			else {
+<span class="pc bpc" id="L671" title="1 of 2 branches missed.">				if ( _input.LA(1)==Token.EOF ) matchedEOF = true;</span>
+<span class="fc" id="L672">				_errHandler.reportMatch(this);</span>
+<span class="fc" id="L673">				consume();</span>
+			}
+			}
+		}
+<span class="nc" id="L677">		catch (RecognitionException re) {</span>
+<span class="nc" id="L678">			_localctx.exception = re;</span>
+<span class="nc" id="L679">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L680">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="fc" id="L683">			exitRule();</span>
+		}
+<span class="fc" id="L685">		return _localctx;</span>
+	}
+
+	public static class SelectElementsContext extends ParserRuleContext {
+		public Token star;
+		public List&lt;SelectElementContext&gt; selectElement() {
+<span class="fc" id="L691">			return getRuleContexts(SelectElementContext.class);</span>
+		}
+		public SelectElementContext selectElement(int i) {
+<span class="nc" id="L694">			return getRuleContext(SelectElementContext.class,i);</span>
+		}
+<span class="nc" id="L696">		public TerminalNode ASTERISK_() { return getToken(MySQLStatementParser.ASTERISK_, 0); }</span>
+<span class="nc" id="L697">		public List&lt;TerminalNode&gt; COMMA_() { return getTokens(MySQLStatementParser.COMMA_); }</span>
+		public TerminalNode COMMA_(int i) {
+<span class="nc" id="L699">			return getToken(MySQLStatementParser.COMMA_, i);</span>
+		}
+		public SelectElementsContext(ParserRuleContext parent, int invokingState) {
+<span class="fc" id="L702">			super(parent, invokingState);</span>
+<span class="fc" id="L703">		}</span>
+<span class="nc" id="L704">		@Override public int getRuleIndex() { return RULE_selectElements; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="nc bnc" id="L707" title="All 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitSelectElements(this);</span>
+<span class="nc" id="L708">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final SelectElementsContext selectElements() throws RecognitionException {
+<span class="fc" id="L713">		SelectElementsContext _localctx = new SelectElementsContext(_ctx, getState());</span>
+<span class="fc" id="L714">		enterRule(_localctx, 22, RULE_selectElements);</span>
+		int _la;
+		try {
+<span class="fc" id="L717">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="fc" id="L719">			setState(97);</span>
+<span class="fc" id="L720">			_errHandler.sync(this);</span>
+<span class="pc bpc" id="L721" title="2 of 3 branches missed.">			switch (_input.LA(1)) {</span>
+			case ASTERISK_:
+				{
+<span class="nc" id="L724">				setState(95);</span>
+<span class="nc" id="L725">				((SelectElementsContext)_localctx).star = match(ASTERISK_);</span>
+				}
+<span class="nc" id="L727">				break;</span>
+			case IDENTIFIER_:
+			case STRING_:
+			case NUMBER_:
+				{
+<span class="fc" id="L732">				setState(96);</span>
+<span class="fc" id="L733">				selectElement();</span>
+				}
+<span class="fc" id="L735">				break;</span>
+			default:
+<span class="nc" id="L737">				throw new NoViableAltException(this);</span>
+			}
+<span class="fc" id="L739">			setState(103);</span>
+<span class="fc" id="L740">			_errHandler.sync(this);</span>
+<span class="fc" id="L741">			_la = _input.LA(1);</span>
+<span class="fc bfc" id="L742" title="All 2 branches covered.">			while (_la==COMMA_) {</span>
+				{
+				{
+<span class="fc" id="L745">				setState(99);</span>
+<span class="fc" id="L746">				match(COMMA_);</span>
+<span class="fc" id="L747">				setState(100);</span>
+<span class="fc" id="L748">				selectElement();</span>
+				}
+				}
+<span class="fc" id="L751">				setState(105);</span>
+<span class="fc" id="L752">				_errHandler.sync(this);</span>
+<span class="fc" id="L753">				_la = _input.LA(1);</span>
+			}
+			}
+		}
+<span class="nc" id="L757">		catch (RecognitionException re) {</span>
+<span class="nc" id="L758">			_localctx.exception = re;</span>
+<span class="nc" id="L759">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L760">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="fc" id="L763">			exitRule();</span>
+		}
+<span class="fc" id="L765">		return _localctx;</span>
+	}
+
+	public static class SelectElementContext extends ParserRuleContext {
+		public IdentifierContext identifier() {
+<span class="nc" id="L770">			return getRuleContext(IdentifierContext.class,0);</span>
+		}
+		public SelectElementContext(ParserRuleContext parent, int invokingState) {
+<span class="fc" id="L773">			super(parent, invokingState);</span>
+<span class="fc" id="L774">		}</span>
+<span class="nc" id="L775">		@Override public int getRuleIndex() { return RULE_selectElement; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="pc bpc" id="L778" title="1 of 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitSelectElement(this);</span>
+<span class="nc" id="L779">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final SelectElementContext selectElement() throws RecognitionException {
+<span class="fc" id="L784">		SelectElementContext _localctx = new SelectElementContext(_ctx, getState());</span>
+<span class="fc" id="L785">		enterRule(_localctx, 24, RULE_selectElement);</span>
+		try {
+<span class="fc" id="L787">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="fc" id="L789">			setState(106);</span>
+<span class="fc" id="L790">			identifier();</span>
+			}
+		}
+<span class="nc" id="L793">		catch (RecognitionException re) {</span>
+<span class="nc" id="L794">			_localctx.exception = re;</span>
+<span class="nc" id="L795">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L796">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="fc" id="L799">			exitRule();</span>
+		}
+<span class="fc" id="L801">		return _localctx;</span>
+	}
+
+	public static class WhereClauseContext extends ParserRuleContext {
+<span class="nc" id="L805">		public TerminalNode WHERE() { return getToken(MySQLStatementParser.WHERE, 0); }</span>
+		public LogicExpressionContext logicExpression() {
+<span class="nc" id="L807">			return getRuleContext(LogicExpressionContext.class,0);</span>
+		}
+		public WhereClauseContext(ParserRuleContext parent, int invokingState) {
+<span class="nc" id="L810">			super(parent, invokingState);</span>
+<span class="nc" id="L811">		}</span>
+<span class="nc" id="L812">		@Override public int getRuleIndex() { return RULE_whereClause; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="nc bnc" id="L815" title="All 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitWhereClause(this);</span>
+<span class="nc" id="L816">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final WhereClauseContext whereClause() throws RecognitionException {
+<span class="nc" id="L821">		WhereClauseContext _localctx = new WhereClauseContext(_ctx, getState());</span>
+<span class="nc" id="L822">		enterRule(_localctx, 26, RULE_whereClause);</span>
+		try {
+<span class="nc" id="L824">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="nc" id="L826">			setState(108);</span>
+<span class="nc" id="L827">			match(WHERE);</span>
+<span class="nc" id="L828">			setState(109);</span>
+<span class="nc" id="L829">			logicExpression(0);</span>
+			}
+		}
+<span class="nc" id="L832">		catch (RecognitionException re) {</span>
+<span class="nc" id="L833">			_localctx.exception = re;</span>
+<span class="nc" id="L834">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L835">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="nc" id="L838">			exitRule();</span>
+		}
+<span class="nc" id="L840">		return _localctx;</span>
+	}
+
+	public static class LogicExpressionContext extends ParserRuleContext {
+		public SelectElementContext selectElement() {
+<span class="nc" id="L845">			return getRuleContext(SelectElementContext.class,0);</span>
+		}
+		public ComparisonOperatorContext comparisonOperator() {
+<span class="nc" id="L848">			return getRuleContext(ComparisonOperatorContext.class,0);</span>
+		}
+		public List&lt;IdentifierContext&gt; identifier() {
+<span class="nc" id="L851">			return getRuleContexts(IdentifierContext.class);</span>
+		}
+		public IdentifierContext identifier(int i) {
+<span class="nc" id="L854">			return getRuleContext(IdentifierContext.class,i);</span>
+		}
+<span class="nc" id="L856">		public TerminalNode BETWEEN() { return getToken(MySQLStatementParser.BETWEEN, 0); }</span>
+<span class="nc" id="L857">		public TerminalNode AND() { return getToken(MySQLStatementParser.AND, 0); }</span>
+<span class="nc" id="L858">		public TerminalNode IN() { return getToken(MySQLStatementParser.IN, 0); }</span>
+<span class="nc" id="L859">		public TerminalNode LP_() { return getToken(MySQLStatementParser.LP_, 0); }</span>
+<span class="nc" id="L860">		public TerminalNode RP_() { return getToken(MySQLStatementParser.RP_, 0); }</span>
+<span class="nc" id="L861">		public TerminalNode NOT() { return getToken(MySQLStatementParser.NOT, 0); }</span>
+<span class="nc" id="L862">		public List&lt;TerminalNode&gt; COMMA_() { return getTokens(MySQLStatementParser.COMMA_); }</span>
+		public TerminalNode COMMA_(int i) {
+<span class="nc" id="L864">			return getToken(MySQLStatementParser.COMMA_, i);</span>
+		}
+		public List&lt;LogicExpressionContext&gt; logicExpression() {
+<span class="nc" id="L867">			return getRuleContexts(LogicExpressionContext.class);</span>
+		}
+		public LogicExpressionContext logicExpression(int i) {
+<span class="nc" id="L870">			return getRuleContext(LogicExpressionContext.class,i);</span>
+		}
+		public LogicalOperatorContext logicalOperator() {
+<span class="nc" id="L873">			return getRuleContext(LogicalOperatorContext.class,0);</span>
+		}
+		public LogicExpressionContext(ParserRuleContext parent, int invokingState) {
+<span class="nc" id="L876">			super(parent, invokingState);</span>
+<span class="nc" id="L877">		}</span>
+<span class="nc" id="L878">		@Override public int getRuleIndex() { return RULE_logicExpression; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="nc bnc" id="L881" title="All 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitLogicExpression(this);</span>
+<span class="nc" id="L882">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final LogicExpressionContext logicExpression() throws RecognitionException {
+<span class="nc" id="L887">		return logicExpression(0);</span>
+	}
+
+	private LogicExpressionContext logicExpression(int _p) throws RecognitionException {
+<span class="nc" id="L891">		ParserRuleContext _parentctx = _ctx;</span>
+<span class="nc" id="L892">		int _parentState = getState();</span>
+<span class="nc" id="L893">		LogicExpressionContext _localctx = new LogicExpressionContext(_ctx, _parentState);</span>
+<span class="nc" id="L894">		LogicExpressionContext _prevctx = _localctx;</span>
+<span class="nc" id="L895">		int _startState = 28;</span>
+<span class="nc" id="L896">		enterRecursionRule(_localctx, 28, RULE_logicExpression, _p);</span>
+		int _la;
+		try {
+			int _alt;
+<span class="nc" id="L900">			enterOuterAlt(_localctx, 1);</span>
+			{
+<span class="nc" id="L902">			setState(142);</span>
+<span class="nc" id="L903">			_errHandler.sync(this);</span>
+<span class="nc bnc" id="L904" title="All 5 branches missed.">			switch ( getInterpreter().adaptivePredict(_input,11,_ctx) ) {</span>
+			case 1:
+				{
+<span class="nc" id="L907">				setState(112);</span>
+<span class="nc" id="L908">				selectElement();</span>
+<span class="nc" id="L909">				setState(113);</span>
+<span class="nc" id="L910">				comparisonOperator();</span>
+<span class="nc" id="L911">				setState(114);</span>
+<span class="nc" id="L912">				identifier();</span>
+				}
+<span class="nc" id="L914">				break;</span>
+			case 2:
+				{
+<span class="nc" id="L917">				setState(116);</span>
+<span class="nc" id="L918">				selectElement();</span>
+<span class="nc" id="L919">				setState(117);</span>
+<span class="nc" id="L920">				match(BETWEEN);</span>
+<span class="nc" id="L921">				setState(118);</span>
+<span class="nc" id="L922">				identifier();</span>
+<span class="nc" id="L923">				setState(119);</span>
+<span class="nc" id="L924">				match(AND);</span>
+<span class="nc" id="L925">				setState(120);</span>
+<span class="nc" id="L926">				identifier();</span>
+				}
+<span class="nc" id="L928">				break;</span>
+			case 3:
+				{
+<span class="nc" id="L931">				setState(122);</span>
+<span class="nc" id="L932">				selectElement();</span>
+<span class="nc" id="L933">				setState(124);</span>
+<span class="nc" id="L934">				_errHandler.sync(this);</span>
+<span class="nc" id="L935">				_la = _input.LA(1);</span>
+<span class="nc bnc" id="L936" title="All 2 branches missed.">				if (_la==NOT) {</span>
+					{
+<span class="nc" id="L938">					setState(123);</span>
+<span class="nc" id="L939">					match(NOT);</span>
+					}
+				}
+
+<span class="nc" id="L943">				setState(126);</span>
+<span class="nc" id="L944">				match(IN);</span>
+<span class="nc" id="L945">				setState(127);</span>
+<span class="nc" id="L946">				match(LP_);</span>
+<span class="nc" id="L947">				setState(128);</span>
+<span class="nc" id="L948">				identifier();</span>
+<span class="nc" id="L949">				setState(133);</span>
+<span class="nc" id="L950">				_errHandler.sync(this);</span>
+<span class="nc" id="L951">				_la = _input.LA(1);</span>
+<span class="nc bnc" id="L952" title="All 2 branches missed.">				while (_la==COMMA_) {</span>
+					{
+					{
+<span class="nc" id="L955">					setState(129);</span>
+<span class="nc" id="L956">					match(COMMA_);</span>
+<span class="nc" id="L957">					setState(130);</span>
+<span class="nc" id="L958">					identifier();</span>
+					}
+					}
+<span class="nc" id="L961">					setState(135);</span>
+<span class="nc" id="L962">					_errHandler.sync(this);</span>
+<span class="nc" id="L963">					_la = _input.LA(1);</span>
+				}
+<span class="nc" id="L965">				setState(136);</span>
+<span class="nc" id="L966">				match(RP_);</span>
+				}
+<span class="nc" id="L968">				break;</span>
+			case 4:
+				{
+<span class="nc" id="L971">				setState(138);</span>
+<span class="nc" id="L972">				match(LP_);</span>
+<span class="nc" id="L973">				setState(139);</span>
+<span class="nc" id="L974">				logicExpression(0);</span>
+<span class="nc" id="L975">				setState(140);</span>
+<span class="nc" id="L976">				match(RP_);</span>
+				}
+				break;
+			}
+<span class="nc" id="L980">			_ctx.stop = _input.LT(-1);</span>
+<span class="nc" id="L981">			setState(150);</span>
+<span class="nc" id="L982">			_errHandler.sync(this);</span>
+<span class="nc" id="L983">			_alt = getInterpreter().adaptivePredict(_input,12,_ctx);</span>
+<span class="nc bnc" id="L984" title="All 4 branches missed.">			while ( _alt!=2 &amp;&amp; _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {</span>
+<span class="nc bnc" id="L985" title="All 2 branches missed.">				if ( _alt==1 ) {</span>
+<span class="nc bnc" id="L986" title="All 2 branches missed.">					if ( _parseListeners!=null ) triggerExitRuleEvent();</span>
+<span class="nc" id="L987">					_prevctx = _localctx;</span>
+					{
+					{
+<span class="nc" id="L990">					_localctx = new LogicExpressionContext(_parentctx, _parentState);</span>
+<span class="nc" id="L991">					pushNewRecursionContext(_localctx, _startState, RULE_logicExpression);</span>
+<span class="nc" id="L992">					setState(144);</span>
+<span class="nc bnc" id="L993" title="All 2 branches missed.">					if (!(precpred(_ctx, 5))) throw new FailedPredicateException(this, &quot;precpred(_ctx, 5)&quot;);</span>
+<span class="nc" id="L994">					setState(145);</span>
+<span class="nc" id="L995">					logicalOperator();</span>
+<span class="nc" id="L996">					setState(146);</span>
+<span class="nc" id="L997">					logicExpression(6);</span>
+					}
+					} 
+				}
+<span class="nc" id="L1001">				setState(152);</span>
+<span class="nc" id="L1002">				_errHandler.sync(this);</span>
+<span class="nc" id="L1003">				_alt = getInterpreter().adaptivePredict(_input,12,_ctx);</span>
+			}
+			}
+		}
+<span class="nc" id="L1007">		catch (RecognitionException re) {</span>
+<span class="nc" id="L1008">			_localctx.exception = re;</span>
+<span class="nc" id="L1009">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L1010">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="nc" id="L1013">			unrollRecursionContexts(_parentctx);</span>
+		}
+<span class="nc" id="L1015">		return _localctx;</span>
+	}
+
+	public static class LogicalOperatorContext extends ParserRuleContext {
+<span class="nc" id="L1019">		public TerminalNode AND() { return getToken(MySQLStatementParser.AND, 0); }</span>
+<span class="nc" id="L1020">		public List&lt;TerminalNode&gt; AMPERSAND_() { return getTokens(MySQLStatementParser.AMPERSAND_); }</span>
+		public TerminalNode AMPERSAND_(int i) {
+<span class="nc" id="L1022">			return getToken(MySQLStatementParser.AMPERSAND_, i);</span>
+		}
+<span class="nc" id="L1024">		public TerminalNode OR() { return getToken(MySQLStatementParser.OR, 0); }</span>
+<span class="nc" id="L1025">		public List&lt;TerminalNode&gt; VERTICAL_BAR_() { return getTokens(MySQLStatementParser.VERTICAL_BAR_); }</span>
+		public TerminalNode VERTICAL_BAR_(int i) {
+<span class="nc" id="L1027">			return getToken(MySQLStatementParser.VERTICAL_BAR_, i);</span>
+		}
+		public LogicalOperatorContext(ParserRuleContext parent, int invokingState) {
+<span class="nc" id="L1030">			super(parent, invokingState);</span>
+<span class="nc" id="L1031">		}</span>
+<span class="nc" id="L1032">		@Override public int getRuleIndex() { return RULE_logicalOperator; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="nc bnc" id="L1035" title="All 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitLogicalOperator(this);</span>
+<span class="nc" id="L1036">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final LogicalOperatorContext logicalOperator() throws RecognitionException {
+<span class="nc" id="L1041">		LogicalOperatorContext _localctx = new LogicalOperatorContext(_ctx, getState());</span>
+<span class="nc" id="L1042">		enterRule(_localctx, 30, RULE_logicalOperator);</span>
+		try {
+<span class="nc" id="L1044">			setState(159);</span>
+<span class="nc" id="L1045">			_errHandler.sync(this);</span>
+<span class="nc bnc" id="L1046" title="All 5 branches missed.">			switch (_input.LA(1)) {</span>
+			case AND:
+<span class="nc" id="L1048">				enterOuterAlt(_localctx, 1);</span>
+				{
+<span class="nc" id="L1050">				setState(153);</span>
+<span class="nc" id="L1051">				match(AND);</span>
+				}
+<span class="nc" id="L1053">				break;</span>
+			case AMPERSAND_:
+<span class="nc" id="L1055">				enterOuterAlt(_localctx, 2);</span>
+				{
+<span class="nc" id="L1057">				setState(154);</span>
+<span class="nc" id="L1058">				match(AMPERSAND_);</span>
+<span class="nc" id="L1059">				setState(155);</span>
+<span class="nc" id="L1060">				match(AMPERSAND_);</span>
+				}
+<span class="nc" id="L1062">				break;</span>
+			case OR:
+<span class="nc" id="L1064">				enterOuterAlt(_localctx, 3);</span>
+				{
+<span class="nc" id="L1066">				setState(156);</span>
+<span class="nc" id="L1067">				match(OR);</span>
+				}
+<span class="nc" id="L1069">				break;</span>
+			case VERTICAL_BAR_:
+<span class="nc" id="L1071">				enterOuterAlt(_localctx, 4);</span>
+				{
+<span class="nc" id="L1073">				setState(157);</span>
+<span class="nc" id="L1074">				match(VERTICAL_BAR_);</span>
+<span class="nc" id="L1075">				setState(158);</span>
+<span class="nc" id="L1076">				match(VERTICAL_BAR_);</span>
+				}
+<span class="nc" id="L1078">				break;</span>
+			default:
+<span class="nc" id="L1080">				throw new NoViableAltException(this);</span>
+			}
+		}
+<span class="nc" id="L1083">		catch (RecognitionException re) {</span>
+<span class="nc" id="L1084">			_localctx.exception = re;</span>
+<span class="nc" id="L1085">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L1086">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="nc" id="L1089">			exitRule();</span>
+		}
+<span class="nc" id="L1091">		return _localctx;</span>
+	}
+
+	public static class ComparisonOperatorContext extends ParserRuleContext {
+<span class="nc" id="L1095">		public TerminalNode EQ_() { return getToken(MySQLStatementParser.EQ_, 0); }</span>
+<span class="nc" id="L1096">		public TerminalNode GT_() { return getToken(MySQLStatementParser.GT_, 0); }</span>
+<span class="nc" id="L1097">		public TerminalNode LT_() { return getToken(MySQLStatementParser.LT_, 0); }</span>
+<span class="nc" id="L1098">		public TerminalNode NOT_() { return getToken(MySQLStatementParser.NOT_, 0); }</span>
+		public ComparisonOperatorContext(ParserRuleContext parent, int invokingState) {
+<span class="nc" id="L1100">			super(parent, invokingState);</span>
+<span class="nc" id="L1101">		}</span>
+<span class="nc" id="L1102">		@Override public int getRuleIndex() { return RULE_comparisonOperator; }</span>
+		@Override
+		public &lt;T&gt; T accept(ParseTreeVisitor&lt;? extends T&gt; visitor) {
+<span class="nc bnc" id="L1105" title="All 2 branches missed.">			if ( visitor instanceof MySQLStatementVisitor ) return ((MySQLStatementVisitor&lt;? extends T&gt;)visitor).visitComparisonOperator(this);</span>
+<span class="nc" id="L1106">			else return visitor.visitChildren(this);</span>
+		}
+	}
+
+	public final ComparisonOperatorContext comparisonOperator() throws RecognitionException {
+<span class="nc" id="L1111">		ComparisonOperatorContext _localctx = new ComparisonOperatorContext(_ctx, getState());</span>
+<span class="nc" id="L1112">		enterRule(_localctx, 32, RULE_comparisonOperator);</span>
+		try {
+<span class="nc" id="L1114">			setState(175);</span>
+<span class="nc" id="L1115">			_errHandler.sync(this);</span>
+<span class="nc bnc" id="L1116" title="All 9 branches missed.">			switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {</span>
+			case 1:
+<span class="nc" id="L1118">				enterOuterAlt(_localctx, 1);</span>
+				{
+<span class="nc" id="L1120">				setState(161);</span>
+<span class="nc" id="L1121">				match(EQ_);</span>
+				}
+<span class="nc" id="L1123">				break;</span>
+			case 2:
+<span class="nc" id="L1125">				enterOuterAlt(_localctx, 2);</span>
+				{
+<span class="nc" id="L1127">				setState(162);</span>
+<span class="nc" id="L1128">				match(GT_);</span>
+				}
+<span class="nc" id="L1130">				break;</span>
+			case 3:
+<span class="nc" id="L1132">				enterOuterAlt(_localctx, 3);</span>
+				{
+<span class="nc" id="L1134">				setState(163);</span>
+<span class="nc" id="L1135">				match(LT_);</span>
+				}
+<span class="nc" id="L1137">				break;</span>
+			case 4:
+<span class="nc" id="L1139">				enterOuterAlt(_localctx, 4);</span>
+				{
+<span class="nc" id="L1141">				setState(164);</span>
+<span class="nc" id="L1142">				match(LT_);</span>
+<span class="nc" id="L1143">				setState(165);</span>
+<span class="nc" id="L1144">				match(EQ_);</span>
+				}
+<span class="nc" id="L1146">				break;</span>
+			case 5:
+<span class="nc" id="L1148">				enterOuterAlt(_localctx, 5);</span>
+				{
+<span class="nc" id="L1150">				setState(166);</span>
+<span class="nc" id="L1151">				match(GT_);</span>
+<span class="nc" id="L1152">				setState(167);</span>
+<span class="nc" id="L1153">				match(EQ_);</span>
+				}
+<span class="nc" id="L1155">				break;</span>
+			case 6:
+<span class="nc" id="L1157">				enterOuterAlt(_localctx, 6);</span>
+				{
+<span class="nc" id="L1159">				setState(168);</span>
+<span class="nc" id="L1160">				match(LT_);</span>
+<span class="nc" id="L1161">				setState(169);</span>
+<span class="nc" id="L1162">				match(GT_);</span>
+				}
+<span class="nc" id="L1164">				break;</span>
+			case 7:
+<span class="nc" id="L1166">				enterOuterAlt(_localctx, 7);</span>
+				{
+<span class="nc" id="L1168">				setState(170);</span>
+<span class="nc" id="L1169">				match(NOT_);</span>
+<span class="nc" id="L1170">				setState(171);</span>
+<span class="nc" id="L1171">				match(EQ_);</span>
+				}
+<span class="nc" id="L1173">				break;</span>
+			case 8:
+<span class="nc" id="L1175">				enterOuterAlt(_localctx, 8);</span>
+				{
+<span class="nc" id="L1177">				setState(172);</span>
+<span class="nc" id="L1178">				match(LT_);</span>
+<span class="nc" id="L1179">				setState(173);</span>
+<span class="nc" id="L1180">				match(EQ_);</span>
+<span class="nc" id="L1181">				setState(174);</span>
+<span class="nc" id="L1182">				match(GT_);</span>
+				}
+				break;
+			}
+		}
+<span class="nc" id="L1187">		catch (RecognitionException re) {</span>
+<span class="nc" id="L1188">			_localctx.exception = re;</span>
+<span class="nc" id="L1189">			_errHandler.reportError(this, re);</span>
+<span class="nc" id="L1190">			_errHandler.recover(this, re);</span>
+		}
+		finally {
+<span class="nc" id="L1193">			exitRule();</span>
+		}
+<span class="nc" id="L1195">		return _localctx;</span>
+	}
+
+	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
+<span class="nc bnc" id="L1199" title="All 2 branches missed.">		switch (ruleIndex) {</span>
+		case 14:
+<span class="nc" id="L1201">			return logicExpression_sempred((LogicExpressionContext)_localctx, predIndex);</span>
+		}
+<span class="nc" id="L1203">		return true;</span>
+	}
+	private boolean logicExpression_sempred(LogicExpressionContext _localctx, int predIndex) {
+<span class="nc bnc" id="L1206" title="All 2 branches missed.">		switch (predIndex) {</span>
+		case 0:
+<span class="nc" id="L1208">			return precpred(_ctx, 5);</span>
+		}
+<span class="nc" id="L1210">		return true;</span>
+	}
+
+	public static final String _serializedATN =
+		&quot;\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3A\u00b4\4\2\t\2\4&quot;+
+		&quot;\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t&quot;+
+		&quot;\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22&quot;+
+		&quot;\3\2\3\2\3\2\5\2(\n\2\3\2\5\2+\n\2\3\3\3\3\3\3\3\4\3\4\3\5\3\5\3\5\3\5&quot;+
+		&quot;\3\5\5\5\67\n\5\3\6\3\6\5\6;\n\6\3\6\3\6\5\6?\n\6\3\6\3\6\3\6\3\7\3\7&quot;+
+		&quot;\3\7\3\7\7\7H\n\7\f\7\16\7K\13\7\3\7\3\7\3\b\3\b\3\t\3\t\3\t\3\t\7\tU&quot;+
+		&quot;\n\t\f\t\16\tX\13\t\3\t\3\t\3\n\3\n\3\13\3\13\3\f\3\f\3\r\3\r\5\rd\n\r&quot;+
+		&quot;\3\r\3\r\7\rh\n\r\f\r\16\rk\13\r\3\16\3\16\3\17\3\17\3\17\3\20\3\20\3&quot;+
+		&quot;\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\3\20\5\20\177\n\20\3&quot;+
+		&quot;\20\3\20\3\20\3\20\3\20\7\20\u0086\n\20\f\20\16\20\u0089\13\20\3\20\3&quot;+
+		&quot;\20\3\20\3\20\3\20\3\20\5\20\u0091\n\20\3\20\3\20\3\20\3\20\7\20\u0097&quot;+
+		&quot;\n\20\f\20\16\20\u009a\13\20\3\21\3\21\3\21\3\21\3\21\3\21\5\21\u00a2&quot;+
+		&quot;\n\21\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22\3\22&quot;+
+		&quot;\3\22\5\22\u00b2\n\22\3\22\2\3\36\23\2\4\6\b\n\f\16\20\22\24\26\30\32&quot;+
+		&quot;\34\36 \&quot;\2\3\3\2;=\2\u00bc\2\'\3\2\2\2\4,\3\2\2\2\6/\3\2\2\2\b\61\3\2&quot;+
+		&quot;\2\2\n8\3\2\2\2\fC\3\2\2\2\16N\3\2\2\2\20P\3\2\2\2\22[\3\2\2\2\24]\3\2&quot;+
+		&quot;\2\2\26_\3\2\2\2\30c\3\2\2\2\32l\3\2\2\2\34n\3\2\2\2\36\u0090\3\2\2\2&quot;+
+		&quot; \u00a1\3\2\2\2\&quot;\u00b1\3\2\2\2$(\5\4\3\2%(\5\n\6\2&amp;(\5\b\5\2\'$\3\2\2&quot;+
+		&quot;\2\'%\3\2\2\2\'&amp;\3\2\2\2(*\3\2\2\2)+\7*\2\2*)\3\2\2\2*+\3\2\2\2+\3\3\2&quot;+
+		&quot;\2\2,-\7,\2\2-.\5\6\4\2.\5\3\2\2\2/\60\5\26\f\2\60\7\3\2\2\2\61\62\7.&quot;+
+		&quot;\2\2\62\63\5\30\r\2\63\64\7\64\2\2\64\66\5\24\13\2\65\67\5\34\17\2\66&quot;+
+		&quot;\65\3\2\2\2\66\67\3\2\2\2\67\t\3\2\2\28:\7-\2\29;\7\61\2\2:9\3\2\2\2:&quot;+
+		&quot;;\3\2\2\2;&lt;\3\2\2\2&lt;&gt;\5\24\13\2=?\5\20\t\2&gt;=\3\2\2\2&gt;?\3\2\2\2?@\3\2\2&quot;+
+		&quot;\2@A\7\62\2\2AB\5\f\7\2B\13\3\2\2\2CD\7\36\2\2DI\5\16\b\2EF\7$\2\2FH\5&quot;+
+		&quot;\16\b\2GE\3\2\2\2HK\3\2\2\2IG\3\2\2\2IJ\3\2\2\2JL\3\2\2\2KI\3\2\2\2LM&quot;+
+		&quot;\7\37\2\2M\r\3\2\2\2NO\5\26\f\2O\17\3\2\2\2PQ\7\36\2\2QV\5\22\n\2RS\7&quot;+
+		&quot;$\2\2SU\5\22\n\2TR\3\2\2\2UX\3\2\2\2VT\3\2\2\2VW\3\2\2\2WY\3\2\2\2XV\3&quot;+
+		&quot;\2\2\2YZ\7\37\2\2Z\21\3\2\2\2[\\\5\26\f\2\\\23\3\2\2\2]^\5\26\f\2^\25&quot;+
+		&quot;\3\2\2\2_`\t\2\2\2`\27\3\2\2\2ad\7\20\2\2bd\5\32\16\2ca\3\2\2\2cb\3\2&quot;+
+		&quot;\2\2di\3\2\2\2ef\7$\2\2fh\5\32\16\2ge\3\2\2\2hk\3\2\2\2ig\3\2\2\2ij\3&quot;+
+		&quot;\2\2\2j\31\3\2\2\2ki\3\2\2\2lm\5\26\f\2m\33\3\2\2\2no\7\65\2\2op\5\36&quot;+
+		&quot;\20\2p\35\3\2\2\2qr\b\20\1\2rs\5\32\16\2st\5\&quot;\22\2tu\5\26\f\2u\u0091&quot;+
+		&quot;\3\2\2\2vw\5\32\16\2wx\79\2\2xy\5\26\f\2yz\7\66\2\2z{\5\26\f\2{\u0091&quot;+
+		&quot;\3\2\2\2|~\5\32\16\2}\177\78\2\2~}\3\2\2\2~\177\3\2\2\2\177\u0080\3\2&quot;+
+		&quot;\2\2\u0080\u0081\7:\2\2\u0081\u0082\7\36\2\2\u0082\u0087\5\26\f\2\u0083&quot;+
+		&quot;\u0084\7$\2\2\u0084\u0086\5\26\f\2\u0085\u0083\3\2\2\2\u0086\u0089\3\2&quot;+
+		&quot;\2\2\u0087\u0085\3\2\2\2\u0087\u0088\3\2\2\2\u0088\u008a\3\2\2\2\u0089&quot;+
+		&quot;\u0087\3\2\2\2\u008a\u008b\7\37\2\2\u008b\u0091\3\2\2\2\u008c\u008d\7&quot;+
+		&quot;\36\2\2\u008d\u008e\5\36\20\2\u008e\u008f\7\37\2\2\u008f\u0091\3\2\2\2&quot;+
+		&quot;\u0090q\3\2\2\2\u0090v\3\2\2\2\u0090|\3\2\2\2\u0090\u008c\3\2\2\2\u0091&quot;+
+		&quot;\u0098\3\2\2\2\u0092\u0093\f\7\2\2\u0093\u0094\5 \21\2\u0094\u0095\5\36&quot;+
+		&quot;\20\b\u0095\u0097\3\2\2\2\u0096\u0092\3\2\2\2\u0097\u009a\3\2\2\2\u0098&quot;+
+		&quot;\u0096\3\2\2\2\u0098\u0099\3\2\2\2\u0099\37\3\2\2\2\u009a\u0098\3\2\2&quot;+
+		&quot;\2\u009b\u00a2\7\66\2\2\u009c\u009d\7\b\2\2\u009d\u00a2\7\b\2\2\u009e&quot;+
+		&quot;\u00a2\7\67\2\2\u009f\u00a0\7\7\2\2\u00a0\u00a2\7\7\2\2\u00a1\u009b\3&quot;+
+		&quot;\2\2\2\u00a1\u009c\3\2\2\2\u00a1\u009e\3\2\2\2\u00a1\u009f\3\2\2\2\u00a2&quot;+
+		&quot;!\3\2\2\2\u00a3\u00b2\7\27\2\2\u00a4\u00b2\7\31\2\2\u00a5\u00b2\7\33\2&quot;+
+		&quot;\2\u00a6\u00a7\7\33\2\2\u00a7\u00b2\7\27\2\2\u00a8\u00a9\7\31\2\2\u00a9&quot;+
+		&quot;\u00b2\7\27\2\2\u00aa\u00ab\7\33\2\2\u00ab\u00b2\7\31\2\2\u00ac\u00ad&quot;+
+		&quot;\7\5\2\2\u00ad\u00b2\7\27\2\2\u00ae\u00af\7\33\2\2\u00af\u00b0\7\27\2&quot;+
+		&quot;\2\u00b0\u00b2\7\31\2\2\u00b1\u00a3\3\2\2\2\u00b1\u00a4\3\2\2\2\u00b1&quot;+
+		&quot;\u00a5\3\2\2\2\u00b1\u00a6\3\2\2\2\u00b1\u00a8\3\2\2\2\u00b1\u00aa\3\2&quot;+
+		&quot;\2\2\u00b1\u00ac\3\2\2\2\u00b1\u00ae\3\2\2\2\u00b2#\3\2\2\2\21\'*\66:&quot;+
+		&quot;&gt;IVci~\u0087\u0090\u0098\u00a1\u00b1&quot;;
+<span class="fc" id="L1268">	public static final ATN _ATN =</span>
+<span class="fc" id="L1269">		new ATNDeserializer().deserialize(_serializedATN.toCharArray());</span>
+	static {
+<span class="fc" id="L1271">		_decisionToDFA = new DFA[_ATN.getNumberOfDecisions()];</span>
+<span class="fc bfc" id="L1272" title="All 2 branches covered.">		for (int i = 0; i &lt; _ATN.getNumberOfDecisions(); i++) {</span>
+<span class="fc" id="L1273">			_decisionToDFA[i] = new DFA(_ATN.getDecisionState(i), i);</span>
+		}
+<span class="fc" id="L1275">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>
